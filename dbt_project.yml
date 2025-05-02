@@ -3,7 +3,7 @@ version: '1.0.0'
 
 profile: 'dbt_basket_craft'
 
-model-paths: ["dbt_basket_craft/models"]
+model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
 seed-paths: ["seeds"]

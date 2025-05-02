@@ -33,6 +33,6 @@ WHERE created_at BETWEEN '2023-12-01' AND '2023-12-31 23:59:59';
 df = pd.read_sql(query, mysql_engine)
 
 #%%
-df.to_sql('website_sessions', pg_engine, schema='raw', if_exists='replace', index=False)
+df.to_sql('website_sessions', pg_engine, schema='raw', if_exists='append', index=False)
 
 print(f'{len(df)} records loaded into Postgres raw.website_sessions')
