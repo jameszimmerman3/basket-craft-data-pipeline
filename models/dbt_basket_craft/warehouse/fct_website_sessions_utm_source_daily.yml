@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: fct_website_sessions_utm_source_daily
+    description: >
+      Daily aggregated metrics for website sessions grouped by utm_source.
+      Includes total sessions, repeat sessions, and repeat session percentage.
+    columns:
+      - name: website_session_day
+        description: The date of the website session
+        tests:
+          - not_null
+
+      - name: utm_source
+        description: UTM source of the session
+        tests:
+          - not_null
+
+      - name: sessions
+        description: Total number of website sessions
+        tests:
+          - not_null
+
+      - name: repeat_sessions
+        description: Total number of repeat sessions
+
+      - name: repeat_sessions_pct
+        description: Percentage of sessions that were repeat
