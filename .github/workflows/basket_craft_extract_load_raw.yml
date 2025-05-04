@@ -17,7 +17,7 @@ env:
 
 jobs:
   extract-load:
-    name: Extract and Load Raw Basket Craft Data to a Raw Schema
+    name: Extract and Load Website Sessions to Raw
     runs-on: ubuntu-latest
 
     steps:
@@ -32,15 +32,6 @@ jobs:
       - name: Install python dependencies
         run: |
           pip install -r requirements.txt
-
-      # Commented out to avoid dependency drop conflict
-      # - name: Extract and load products to raw schema 
-      #   run: |
-      #     python elt/basket_craft_products_extract_load_raw.py
-
-      - name: Extract and load orders to raw schema 
-        run: |
-          python elt/basket_craft_orders_extract_load_raw.py
 
       - name: Extract and load website_sessions to raw schema 
         run: |
