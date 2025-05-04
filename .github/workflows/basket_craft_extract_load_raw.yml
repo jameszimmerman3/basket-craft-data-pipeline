@@ -33,9 +33,10 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Extract and load products to raw schema 
-        run: |
-          python elt/basket_craft_products_extract_load_raw.py
+      # Commented out to avoid dependency drop conflict
+      # - name: Extract and load products to raw schema 
+      #   run: |
+      #     python elt/basket_craft_products_extract_load_raw.py
 
       - name: Extract and load orders to raw schema 
         run: |
