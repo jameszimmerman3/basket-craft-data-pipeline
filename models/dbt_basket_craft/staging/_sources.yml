@@ -28,3 +28,14 @@ sources:
           - name: primary_product_id
           - name: user_id
           - name: website_session_id
+      - name: website_sessions
+        columns:
+          - name: website_session_id
+            description: Primary key for website sessions
+            tests:
+              - unique
+              - not_null
+          - name: created_at
+          - name: user_id
+          - name: is_repeat_session
+          - name: utm_source

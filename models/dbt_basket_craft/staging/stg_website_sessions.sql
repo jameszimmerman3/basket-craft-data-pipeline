@@ -1,17 +1,18 @@
-with source as (
-    select * 
-    from raw.website_sessions
+{{ config(materialized='view') }}
+
+WITH raw_website_sessions AS (
+   SELECT * 
+   FROM {{ source('basket_craft', 'website_sessions') }}
 ),
-
-renamed as (
-    select
-        website_session_id,
-        user_id,
-        utm_source,
-        is_repeat_session,
-        created_at as website_session_created_at,
-        current_timestamp as loaded_at
-    from source
+stg_website_sessions AS (
+   SELECT
+       website_session_id,
+       created_at AS website_session_created_at,
+       user_id,
+       is_repeat_session,
+       utm_source,
+       CURRENT_TIMESTAMP AS loaded_at
+   FROM raw_website_sessions
 )
-
-select * from renamed
+SELECT *
+FROM stg_website_sessions
